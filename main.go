@@ -123,7 +123,7 @@ func main() {
 				l.Info().Str("content_type", contentType).Send()
 
 				w.Header().Add("Content-Type", contentType)
-				w.WriteHeader(http.StatusOK)
+				w.WriteHeader(resp.StatusCode)
 				_, _ = io.Copy(w, resp.Body)
 			})
 
