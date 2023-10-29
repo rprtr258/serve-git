@@ -96,7 +96,7 @@ func main() {
 				}
 				defer resp.Body.Close()
 
-				if resp.StatusCode == http.StatusNotFound {
+				if resp.StatusCode == http.StatusNotFound || resp.StatusCode == http.StatusBadRequest {
 					filePath = path.Join(filePath, "index.html")
 
 					l = log.With().Str("path", filePath).Logger()
